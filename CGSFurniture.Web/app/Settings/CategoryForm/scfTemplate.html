@@ -1,0 +1,36 @@
+﻿<section class="g-py-50">
+    <div class="container">
+        <div class="text-center g-mb-50">
+            <h2 class="h4"><span class="g-color-primary g-ml-5">{{actionTxt}} Category</span></h2>
+        </div>
+        <div id="shortcode1">
+            <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" name="categoryForm">
+                <div class="form-group g-mb-20">
+                    <label class="g-mb-10">Name</label>
+                    <div class="input-group g-brd-primary--focus">
+                        <input name="categoryName" class="form-control form-control-md border-right-0 rounded-0 pr-0" type="text" placeholder="Enter name" ng-model="category.categoryName" required>
+                        <div class="input-group-addon d-flex align-items-center g-bg-white g-color-gray-light-v1 rounded-0">
+                            <i class="icon-check"></i>
+                        </div>
+                    </div>
+                    <small ng-show="(categoryForm.categoryName.$dirty || submitted) && categoryForm.categoryName.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                </div>
+                <div class="form-group g-mb-20">
+                    <label class="g-mb-10" for="inputGroup2_1">Description</label>
+                    <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="Enter description" ng-model="category.description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-md u-btn-primary rounded-0" ng-click="btnSubmitClick()">Submit</button>
+                <button type="submit" class="btn btn-md u-btn-outline-primary rounded-0" onclick="window.history.back();">Cancel</button>
+            </form>
+        </div>
+        <!-- Danger Alert -->
+        <div ng-show="errorOnPage" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="h5"><i class="fa fa-minus-circle"></i> Oh snap!</h4>
+            {{message}}.
+        </div>
+        <!-- Danger Alert -->
+    </div>
+</section>

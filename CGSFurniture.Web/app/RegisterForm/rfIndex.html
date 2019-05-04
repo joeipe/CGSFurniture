@@ -1,0 +1,205 @@
+﻿<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="Content/Template/assets/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/icon-line/css/simple-line-icons.css">
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="Content/Template/assets/vendor/icon-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/icon-line-pro/style.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/dzsparallaxer/dzsparallaxer.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/chosen/chosen.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/icon-hs/style.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/animate.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/hamburgers/hamburgers.min.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+<link rel="stylesheet" href="Content/Template/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+
+<!-- JS Global Compulsory -->
+<script src="Content/Template/assets/vendor/jquery/jquery.min.js"></script>
+<script src="Content/Template/assets/vendor/tether.min.js"></script>
+<script src="Content/Template/assets/vendor/bootstrap/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script src="Content/Template/assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+<script src="Content/Template/assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+<script src="Content/Template/assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+<script src="Content/Template/assets/vendor/chosen/chosen.jquery.js"></script>
+<script src="Content/Template/assets/vendor/image-select/src/ImageSelect.jquery.js"></script>
+<script src="Content/Template/assets/vendor/appear.js"></script>
+<script src="Content/Template/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+<script src="Content/Template/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- JS Unify -->
+<script src="Scripts/Template/hs.core.js"></script>
+<script src="Scripts/Template/components/hs.header.js"></script>
+<script src="Scripts/Template/helpers/hs.hamburgers.js"></script>
+<script src="Scripts/Template/components/hs.dropdown.js"></script>
+<script src="Scripts/Template/components/hs.scrollbar.js"></script>
+<script src="Scripts/Template/components/hs.tabs.js"></script>
+<script src="Scripts/Template/helpers/hs.focus-state.js"></script>
+<script src="Scripts/Template/components/hs.select.js"></script>
+<script src="Scripts/Template/components/hs.counter.js"></script>
+<!-- JS Customization -->
+<script src="Scripts/Template/custom.js"></script>
+<!-- JS Plugins Init. -->
+<script>
+    ; (function ($) {
+        'use strict';
+        $(document).on('ready', function () {
+            // Header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // Initialization of HSDropdown component
+            $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+                afterOpen: function () {
+                    $(this).find('input[type="search"]').focus();
+                }
+            });
+
+            // Initialization of HSScrollBar component
+            $.HSCore.components.HSScrollBar.init($('.js-scrollbar'));
+
+            // Initialization of HSMegaMenu plugin
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+            $.HSCore.components.HSTabs.init('[data-tabs-mobile-type]');
+        });
+    })(jQuery);
+</script>
+<script>
+    $(document).on('ready', function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $(document).on('ready', function () {
+        $.HSCore.components.HSSelect.init('.js-custom-select');
+        $.HSCore.helpers.HSFocusState.init();
+
+        // initialization of counters
+        var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+    });
+</script>
+
+
+
+<!-- Promo Block -->
+<section class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll loaded dzsprx-readyall" data-options='{direction: "fromtop", animation_duration: 25, direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target w-100 g-bg-pos-top-center g-bg-cover g-bg-black-opacity-0_1--after" style="height: 140%; background-image: url(); background-image: url('Content/Template/e-commerce/assets/img-temp/1920x1080/img3.jpg');"></div>
+    <div class="container g-color-white g-pt-100 g-pb-40">
+        <div class="g-mb-50">
+            <span class="d-block g-color-white-opacity-0_8 g-font-weight-300 g-font-size-20">Best hand-made</span>
+            <h3 class="g-color-white g-font-size-50 g-font-size-90--md g-line-height-1_2 mb-0">Innovative.</h3>
+            <p class="g-color-white g-font-weight-600 g-font-size-20 text-uppercase">Trends 2018</p>
+        </div>
+        <div class="d-flex justify-content-end">
+            <ul class="u-list-inline g-bg-gray-dark-v1 g-font-weight-300 g-rounded-50 g-py-5 g-px-20">
+                <li class="list-inline-item g-mr-5">
+                    <a class="u-link-v5 g-color-white g-color-primary--hover" href="#!/home">Home</a>
+                    <i class="g-color-white-opacity-0_5 g-ml-5">/</i>
+                </li>
+                <li class="list-inline-item g-color-primary g-font-weight-400">
+                    <span>Signup</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End Promo Block -->
+<!-- Signup -->
+<section class="container g-pt-100 g-pb-20" id="registerBlock">
+    <div class="row">
+        <div class="col-lg-5 flex-lg-unordered g-mb-80">
+            <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
+                <header class="text-center mb-4">
+                    <h1 class="h4 g-color-black g-font-weight-400">Create New Account</h1>
+                </header>
+                <!-- Form -->
+                <form class="g-py-15" name="registerForm">
+                    <div class="g-mb-20">
+                        <input name="registerUsername" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Username (email)" ng-model="registrationData.email" required ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,3})$/">
+                        <small ng-show="(registerForm.registerUsername.$dirty || submitted) && registerForm.registerUsername.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                        <small ng-show="(registerForm.registerUsername.$dirty || submitted) && registerForm.registerUsername.$error.pattern" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is not a valid email.</small>
+                    </div>
+                    <div class="g-mb-20">
+                        <input name="registerPassword" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="password" placeholder="Password" ng-model="registrationData.password" required>
+                        <small ng-show="(registerForm.registerPassword.$dirty || submitted) && registerForm.registerPassword.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                    </div>
+                    <div class="g-mb-20">
+                        <input name="registerConfirmPassword" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="password" placeholder="Confirm password" ng-model="registrationData.confirmPassword" required>
+                        <small ng-show="(registerForm.registerConfirmPassword.$dirty || submitted) && registerForm.registerConfirmPassword.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-check-inline u-check g-color-gray-dark-v5 g-font-size-13 g-pl-25 mb-2">
+                            <input class="hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" ng-model="hasAcceptedTerms">
+                            <div class="u-check-icon-checkbox-v6 g-absolute-centered--y g-left-0">
+                                <i class="fa" data-check-icon="&#xf00c"></i>
+                            </div>
+                            I accept the <a href="#!/terms">Terms and Conditions</a>
+                        </label>
+                        <small ng-show="(registerForm.registerConfirmPassword.$dirty || submitted) && !hasAcceptedTerms" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                    </div>
+                    <button class="btn btn-block u-btn-primary g-font-size-default text-uppercase g-py-13" type="button" ng-click="signUp()">Signup</button>
+                </form>
+                <!-- End Form -->
+                <!-- Danger Alert -->
+                <div id="errorAlert" ng-show="errorOnPage" class="alert alert-danger" role="alert">
+                    <strong>Signup failed!</strong> {{message}}.
+                </div>
+                <!-- End Danger Alert -->
+                <!-- Success Alert -->
+                <div ng-show="savedSuccessfully" class="alert alert-success" role="alert">
+                    <strong>Well done!</strong> {{messageSuccessfull}}.
+                </div>
+                <!-- End Success Alert -->
+            </div>
+            <div class="text-center">
+                <p class="g-color-gray-dark-v5 mb-0">Already have an account? <a class="g-font-weight-600" href="#!/login">signin</a></p>
+            </div>
+        </div>
+        <div class="col-lg-7 flex-lg-first g-mb-80">
+            <div class="g-pr-20--lg">
+                <div class="mb-5">
+                    <h2 class="h1 g-font-weight-400 mb-3">Welcome to Unify</h2>
+                    <p class="g-color-gray-dark-v4">The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.</p>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-sm-4 g-mb-10">
+                        <!-- Counters -->
+                        <div class="g-bg-gray-light-v5 g-pa-20">
+                            <div class="js-counter g-color-gray-dark-v5 g-font-weight-300 g-font-size-25 g-line-height-1">52147</div>
+                            <div class="d-inline-block g-width-10 g-height-2 g-bg-gray-dark-v5 mb-1"></div>
+                            <h4 class="g-color-gray-dark-v4 g-font-size-12 text-uppercase">Code Lines</h4>
+                        </div>
+                        <!-- End Counters -->
+                    </div>
+                    <div class="col-sm-4 g-mb-10">
+                        <!-- Counters -->
+                        <div class="g-bg-gray-light-v5 g-pa-20">
+                            <div class="js-counter g-color-gray-dark-v5 g-font-weight-300 g-font-size-25 g-line-height-1">24583</div>
+                            <div class="d-inline-block g-width-10 g-height-2 g-bg-gray-dark-v5 mb-1"></div>
+                            <h4 class="g-color-gray-dark-v4 g-font-size-12 text-uppercase">Projects</h4>
+                        </div>
+                        <!-- End Counters -->
+                    </div>
+                    <div class="col-sm-4 g-mb-10">
+                        <!-- Counters -->
+                        <div class="g-bg-gray-light-v5 g-pa-20">
+                            <div class="js-counter g-color-gray-dark-v5 g-font-weight-300 g-font-size-25 g-line-height-1">7348</div>
+                            <div class="d-inline-block g-width-10 g-height-2 g-bg-gray-dark-v5 mb-1"></div>
+                            <h4 class="g-color-gray-dark-v4 g-font-size-12 text-uppercase">Working Hours</h4>
+                        </div>
+                        <!-- End Counters -->
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h2 class="h4 g-font-weight-400 mb-4">Join more than <span class="g-color-primary">33,000</span> members worldwide</h2>
+                    <img class="img-fluid g-opacity-0_6" src="Content/Template/e-commerce/assets/img/maps/map.png" alt="Image Description">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Signup -->

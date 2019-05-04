@@ -1,0 +1,145 @@
+﻿<section class="g-py-50">
+    <div class="container">
+        <div class="text-center g-mb-50">
+            <h2 class="h4"><span class="g-color-primary g-ml-5">{{actionTxt}} Product</span></h2>
+        </div>
+        <div id="shortcode1">
+            <!-- Nav tabs -->
+            <ul class="nav u-nav-v1-2 u-nav-primary u-nav-rounded-5 g-brd-bottom--md g-brd-primary g-mb-20" role="tablist"
+                data-target="nav-1-2-accordion-default-hor-left-rounded-underline"
+                data-tabs-mobile-type="accordion"
+                data-btn-classes="btn btn-md btn-block u-btn-outline-primary g-mb-20">
+                <li class="nav-item">
+                    <a class="nav-link active g-rounded-bottom-0 g-brd-bottom-none" data-toggle="tab" href data-target="#nav-1-1-default-hor-left-icons--1" role="tab">
+                        <i class="icon-info u-tab-line-icon-pro g-mr-3"></i>
+                        Main
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link g-rounded-bottom-0 g-brd-bottom-none" data-toggle="tab" href data-target="#nav-1-1-default-hor-left-icons--2" role="tab">
+                        <i class="icon-communication-017 u-tab-line-icon-pro g-mr-3"></i>
+                        Images
+                    </a>
+                </li>
+            </ul>
+            <!-- End Nav tabs -->
+            <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" name="productForm">
+                <div id="nav-1-1-default-hor-left-icons" class="tab-content">
+                    <div class="tab-pane fade show active" id="nav-1-1-default-hor-left-icons--1" role="tabpanel">
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10">Name</label>
+                            <div class="input-group g-brd-primary--focus">
+                                <input name="productName" class="form-control form-control-md border-right-0 rounded-0 pr-0" type="text" placeholder="Enter name" ng-model="product.productName" required>
+                                <div class="input-group-addon d-flex align-items-center g-bg-white g-color-gray-light-v1 rounded-0">
+                                    <i class="icon-check"></i>
+                                </div>
+                            </div>
+                            <small ng-show="(productForm.productName.$dirty || submitted) && productForm.productName.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10" for="inputDescription">Description</label>
+                            <textarea id="inputDescription" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="Enter description" ng-model="product.description"></textarea>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10" for="categorySelect">Category</label>
+                            <select name="productCategory" class="form-control rounded-0" id="categorySelect" ng-model="product.categoryID" ng-required="true">
+                                <option ng-repeat="category in categories" ng-value="category.categoryID">{{category.categoryName}}</option>
+                            </select>
+                            <small ng-show="(productForm.productCategory.$dirty || submitted) && productForm.productCategory.$error.required" class="form-control-feedback d-block g-color-red g-font-size-12 g-px-14 g-py-3 mt-0">This is a required field.</small>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10">Unit Price</label>
+                            <div class="input-group g-brd-primary--focus">
+                                <input class="form-control form-control-md border-right-0 rounded-0 pr-0" type="number" placeholder="Enter unit price" ng-model="product.unitPrice">
+                                <div class="input-group-addon d-flex align-items-center g-bg-white g-color-gray-light-v1 rounded-0"></div>
+                            </div>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10">Original Unit Price</label>
+                            <div class="input-group g-brd-primary--focus">
+                                <input class="form-control form-control-md border-right-0 rounded-0 pr-0" type="number" placeholder="Enter original unit price" ng-model="product.originalUnitPrice">
+                                <div class="input-group-addon d-flex align-items-center g-bg-white g-color-gray-light-v1 rounded-0"></div>
+                            </div>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="g-mb-10" for="inputGroup2_2">Details</label>
+                            <textarea id="inputGroup2_3" class="form-control form-control-md u-textarea-expandable rounded-0" rows="3" placeholder="Text details" ng-model="product.details"></textarea>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label class="form-check-inline u-check g-pl-25">
+                                <input class="hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" ng-model="product.discontinued">
+                                <div class="u-check-icon-checkbox-v6 g-absolute-centered--y g-left-0">
+                                    <i class="fa" data-check-icon="&#xf00c"></i>
+                                </div>
+                                Discontinued
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-1-1-default-hor-left-icons--2" role="tabpanel">
+                        <div class="form-group g-mb-20">
+                            <label for="primaryImageInputFile">Primary Image</label>
+                            <input type="file" class="form-control-file" id="primaryImageInputFile" aria-describedby="fileHelp" ngf-select="uploadFile($file, true)" accept="image/*">
+                            <small id="fileHelp" class="form-text text-muted">Image dimension 480x700.</small>
+                            <figure>
+                                <div class="g-pos-rel g-mb-20" ng-show="product.defaultPictureID">
+                                    <img class="img-fluid w-25" ng-src="/api/files/{{product.defaultPictureID}}" alt="Image Description">
+                                </div>
+                                <div class="g-pos-rel g-mb-20" ng-hide="product.defaultPictureID">
+                                    <img class="img-fluid w-25" src="../../Content/Template/e-commerce/assets/img-temp/480x700/img2.jpg" alt="Image Description">
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="form-group g-mb-20">
+                            <label for="productImageInputFile">Detailed Images</label>
+                            <input type="file" class="form-control-file" id="productImageInputFile" aria-describedby="fileHelp" ng-show="product.productID" ngf-select="uploadFile($file, false)" accept="image/*">
+                            <!-- Info Alert -->
+                            <div ng-hide="product.productID" class="alert alert-info alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="media">
+                                    <span class="d-flex mr-2 g-mt-5">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <strong>Heads up!</strong> Detailed images can be added here once the product is created.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Info Alert -->
+                            <small id="fileHelp" class="form-text text-muted">Image dimension 650x750. Choose multiple.</small>
+                            <figure>
+                                <div class="g-bg-cover0" ng-show="productImages">
+                                    <div class="row">
+                                        <div class="col-md-3" ng-repeat="productImage in productImages">
+                                            <a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href ng-click="deleteMainPhoto(productImage.productImagesID, productImage.pictureID)" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+                                                <i class="icon-trash g-font-size-18 g-mr-7"></i>
+                                            </a>
+                                            <img class="img-fluid w-50" ng-src="/api/files/{{productImage.pictureID}}" alt="Image Description">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-bg-cover0" ng-hide="productImages">
+                                    <img class="img-fluid w-25" src="../../Content/Template/e-commerce/assets/img-temp/650x750/img1.jpg" alt="Image Description">
+                                </div>
+                            </figure>
+                        </div>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-md u-btn-primary rounded-0" ng-click="btnSubmitClick()">Submit</button>
+                    <button type="submit" class="btn btn-md u-btn-outline-primary rounded-0" onclick="window.history.back();">Cancel</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Danger Alert -->
+        <div ng-show="errorOnPage" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="h5"><i class="fa fa-minus-circle"></i> Oh snap!</h4>
+            {{message}}.
+        </div>
+        <!-- Danger Alert -->
+    </div>
+</section>

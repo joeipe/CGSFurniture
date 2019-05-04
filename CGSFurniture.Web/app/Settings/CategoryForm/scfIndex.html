@@ -1,0 +1,82 @@
+﻿<!-- Table #03 -->
+<section class="g-py-50">
+    <div class="container">
+        <div class="text-center g-mb-50">
+            <h2 class="h4"><span class="g-color-primary g-ml-5">Category</span></h2>
+        </div>
+        <div id="shortcode3">
+            <a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href ng-click="showAddCategoryForm()" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+                <i class="icon-plus g-font-size-18 g-mr-7"></i>
+            </a>
+            <!--Basic Table-->
+            <div class="table-responsive">
+                <table class="table table-bordered u-table--v2">
+                    <thead class="text-uppercase g-letter-spacing-1">
+                        <tr>
+                            <th class="g-font-weight-300 g-color-black">Name</th>
+                            <th class="g-font-weight-300 g-color-black g-min-width-300">Description</th>
+                            <th class="g-font-weight-300 g-color-black">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="category in categories">
+                            <td class="align-middle text-nowrap">
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        {{category.categoryName}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">{{category.description}}</td>
+                            <td class="align-middle text-nowrap text-center">
+                                <a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href ng-click="showEditCategoryForm(category.categoryID)" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+                                    <i class="icon-pencil g-font-size-18 g-mr-7"></i>
+                                </a>
+                                <a class="g-color-gray-dark-v5 g-text-underline--none--hover g-pa-5" href ng-click="deleteCategory(category.categoryID)" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+                                    <i class="icon-trash g-font-size-18 g-mr-7"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--End Basic Table-->
+            <!-- JS Implementing Plugins -->
+            <script type="text/plain" src="Content/Template/assets/vendor/jquery.peity.min.js">
+            </script>
+            <!-- JS Unify -->
+            <script type="text/plain" src="Scripts/Template/components/hs.chart.js">
+            </script>
+            <!-- JS Plugins Init. -->
+            <script type="text/plain">
+                ;(function ($) {
+                'use strict';
+                $(document).ready(function () {
+                // Bootstrap Tooltips and Popovers
+                $('[data-toggle="tooltip"]').tooltip();
+
+                // Peity charts
+                $.HSCore.components.HSChart.peity.init($('.js-peity-chart'));
+
+                // Peity charts
+                $.HSCore.components.HSChart.peity.init($('.js-peity-chart-gradient'), {
+                fill: function (_, i, all) {
+                var g = parseInt((i / all.length) * 255);
+                return "rgba(0, " + g + ", 255, .5)";
+                }
+                });
+                });
+                })(jQuery);
+            </script>
+        </div>
+        <!-- Danger Alert -->
+        <div ng-show="errorOnPage" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="h5"><i class="fa fa-minus-circle"></i> Oh snap!</h4>
+            {{message}}.
+        </div>
+        <!-- Danger Alert -->
+    </div>
+</section>

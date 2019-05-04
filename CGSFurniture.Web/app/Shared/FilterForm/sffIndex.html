@@ -1,0 +1,60 @@
+﻿<!-- JS Global Compulsory -->
+<script src="Content/Template/assets/vendor/jquery/jquery.min.js"></script>
+<script src="Content/Template/assets/vendor/tether.min.js"></script>
+<script src="Content/Template/assets/vendor/bootstrap/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script src="Content/Template/assets/vendor/jquery-widget.js"></script>
+<script src="Content/Template/assets/vendor/jquery-widgets/menu.js"></script>
+<script src="Content/Template/assets/vendor/jquery-widgets/mouse.js"></script>
+<script src="Content/Template/assets/vendor/jquery-widgets/slider.js"></script>
+<script src="Content/Template/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+<!-- JS Unify -->
+<script src="Scripts/Template/hs.core.js"></script>
+<script src="Scripts/Template/components/hs.header.js"></script>
+<script src="Scripts/Template/helpers/hs.hamburgers.js"></script>
+<script src="Scripts/Template/components/hs.dropdown.js"></script>
+<script src="Scripts/Template/components/hs.scrollbar.js"></script>
+<script src="Scripts/Template/components/hs.tabs.js"></script>
+<script src="Scripts/Template/helpers/hs.rating.js"></script>
+<script src="Scripts/Template/components/hs.slider.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+    $(document).on('ready', function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    ; (function ($) {
+        'use strict';
+        $(document).on('ready', function () {
+            $.HSCore.helpers.HSRating.init();
+            $.HSCore.components.HSSlider.init('#rangeSlider1');
+        });
+    })(jQuery);
+</script>
+<!-- Filters -->
+    <div class="g-pr-15--lg g-pt-60" ng-controller="sffIndexCtrl">
+        <!-- Categories -->
+        <div class="g-mb-30">
+            <h3 class="h5 mb-3">Categories</h3>
+            <ul class="list-unstyled">
+                <li class="my-3" ng-repeat="category in categories">
+                    <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href ng-click="showHomePage(category.categoryID)">{{category.categoryName}} <span class="float-right g-font-size-12">{{category.count}}</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Categories -->
+        <!--<hr>-->
+        <!-- Pricing -->
+        <!--<div class="g-mb-30">
+            <h3 class="h5 mb-3">Pricing</h3>
+            <div class="text-center">
+                <span class="d-block g-color-primary mb-4">$(<span id="rangeSliderAmount3">0</span>)</span>
+                <div id="rangeSlider1" class="u-slider-v1-3" data-result-container="rangeSliderAmount3" data-range="1" data-default="180, 320" data-min="0" data-max="500"></div>
+            </div>
+        </div>-->
+        <!-- End Pricing -->
+        <hr>
+        <button class="btn btn-block u-btn-black g-font-size-default text-uppercase g-py-10" type="button" ng-click="resetHomepage()">Reset</button>
+    </div>
+<!-- End Filters -->
